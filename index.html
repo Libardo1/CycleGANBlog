@@ -1079,7 +1079,7 @@ th {
   box-sizing: border-box;
 }
 html {
-  font-size: 10px;
+  font-size: 15px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
@@ -8430,7 +8430,7 @@ code {
   color: #000;
 }
 pre {
-  font-size: inherit;
+  font-size: 12px;
   line-height: inherit;
 }
 label {
@@ -10420,7 +10420,7 @@ div#notebook_panel {
   height: 100%;
 }
 div#notebook {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   overflow-y: hidden;
   overflow-x: auto;
@@ -11797,6 +11797,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Blog name"> Understaning and Implementing CycleGAN in Tensorflow <a class="anchor-link" href="#Introduction">&#182;</a></h1>
 <h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
 </div>
 </div>
@@ -11912,7 +11913,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">ngf</span> <span class="o">=</span> <span class="mi">32</span> <span class="c1"># Number of filters in first layer of generator</span>
@@ -11951,7 +11952,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">o_c1</span> <span class="o">=</span> <span class="n">general_conv2d</span><span class="p">(</span><span class="n">input_gen</span><span class="p">,</span>
@@ -11979,7 +11980,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">general_conv2d</span><span class="p">(</span><span class="n">inputconv</span><span class="p">,</span> <span class="n">o_d</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">f_h</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">f_w</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">s_h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s_w</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -12006,7 +12007,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">o_c2</span> <span class="o">=</span> <span class="n">general_conv2d</span><span class="p">(</span><span class="n">o_c1</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">64</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">window_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">window_height</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride_height</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -12044,7 +12045,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">o_r1</span> <span class="o">=</span> <span class="n">build_resnet_block</span><span class="p">(</span><span class="n">o_c3</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">64</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
@@ -12079,7 +12080,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">resnet_blocks</span><span class="p">(</span><span class="n">input_res</span><span class="p">,</span> <span class="n">num_features</span><span class="p">):</span>
@@ -12115,7 +12116,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">o_d1</span> <span class="o">=</span> <span class="n">general_deconv2d</span><span class="p">(</span><span class="n">o_enc_B</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="n">ngf</span><span class="o">*</span><span class="mi">2</span> <span class="n">window_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">window_height</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride_height</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -12139,7 +12140,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">gen_B</span> <span class="o">=</span> <span class="n">general_conv2d</span><span class="p">(</span><span class="n">o_d2</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">window_width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">window_height</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">stride_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride_height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -12162,7 +12163,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">build_generator</span><span class="p">(</span><span class="n">input_gen</span><span class="p">):</span>
@@ -12207,7 +12208,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">o_c1</span> <span class="o">=</span> <span class="n">general_conv2d</span><span class="p">(</span><span class="n">input_disc</span><span class="p">,</span> <span class="n">ndf</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -12233,7 +12234,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">decision</span> <span class="o">=</span> <span class="n">general_conv2d</span><span class="p">(</span><span class="n">o_c4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
@@ -12266,7 +12267,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">input_A</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">img_width</span><span class="p">,</span> <span class="n">img_height</span><span class="p">,</span> <span class="n">img_layer</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input_A&quot;</span><span class="p">)</span>
@@ -12290,7 +12291,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">gen_B</span> <span class="o">=</span> <span class="n">build_generator</span><span class="p">(</span><span class="n">input_A</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;generator_AtoB&quot;</span><span class="p">)</span>
@@ -12347,7 +12348,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">D_A_loss_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">squared_difference</span><span class="p">(</span><span class="n">dec_A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -12371,7 +12372,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">D_A_loss_2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">dec_gen_A</span><span class="p">))</span>
@@ -12398,7 +12399,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">g_loss_B_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">squared_difference</span><span class="p">(</span><span class="n">dec_gen_A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -12422,7 +12423,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cyc_loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">input_A</span><span class="o">-</span><span class="n">cyc_A</span><span class="p">))</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">input_B</span><span class="o">-</span><span class="n">cyc_B</span><span class="p">))</span>
@@ -12445,7 +12446,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">g_loss_A</span> <span class="o">=</span> <span class="n">g_loss_A_1</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">cyc_loss</span>
@@ -12488,7 +12489,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">d_A_trainer</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">d_loss_A</span><span class="p">,</span> <span class="n">var_list</span><span class="o">=</span><span class="n">d_A_vars</span><span class="p">)</span>
@@ -12513,7 +12514,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
@@ -12569,7 +12570,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">image_pool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_gen</span><span class="p">,</span> <span class="n">gen_img</span><span class="p">,</span> <span class="n">gen_pool</span><span class="p">):</span>
@@ -12595,7 +12596,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="prompt input_prompt"></div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">gen_image_pool_A</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">img_width</span><span class="p">,</span> <span class="n">img_height</span><span class="p">,</span> <span class="n">img_layer</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gen_img_pool_A&quot;</span><span class="p">)</span>
