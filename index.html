@@ -11778,6 +11778,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Understanding-and-Implementing-CycleGAN-in-TensorFlow">Understanding and Implementing CycleGAN in TensorFlow<a class="anchor-link" href="#Understanding-and-Implementing-CycleGAN-in-TensorFlow">&#182;</a></h1>
+<p> <a href="https://github.com/hardikbansal"> Hardik Bansal </a>, <a href="https://github.com/architrathore"> Archit Rathore </a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <style>
 .red {
     color: #CF5656;
@@ -11797,7 +11807,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Blog name"> Understaning and Implementing CycleGAN in Tensorflow <a class="anchor-link" href="#Introduction">&#182;</a></h1>
 <h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
 </div>
 </div>
@@ -11879,7 +11888,7 @@ to a desired output $y_i$.</p>
 <p><div style= "font-size: 1.5rem; font-style: italic; text-align: center; color: #99938E">
 <img src="images/model.jpg" alt="Model Architecture" style="width: 60%; padding: 10px;"/></p>
 <p><hr style="border-top: dotted 3px;" />
-<img src="images/model1.jpg" alt="Model Architecture 1" style="width: 60%; padding: 10px;"/>
+<img src="images/model1.jpg" alt="Model Architecture 1" style="width: 60%; padding: 10px;"/> 
 <br/>Simplified view of CycleGAN architecture
 </div>
 <br></p>
@@ -11973,7 +11982,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here <strong><code>input_gen</code></strong> is the input image to the generator, <strong><code>num_features</code></strong> is the number of output features we extract out of the convolution layer, which can also be seen as number of different filters used to extract different features. <strong><code>window_width</code></strong> and <strong><code>window_height</code></strong> denote the width and heigth of filter window that we will move accross the input image to extract features and similarly <strong><code>stride_width</code></strong> and <strong><code>stride_height</code></strong> defines the shift of filter patch after each step. The output $o_{c_1}$ is a tensor of dimensions $[256, 256, 64]$ which is again passed through another convolution layer. Here, <strong><code>ngf</code></strong> = 64 as mentioned earlier. I have defined the general_conv2d function. We can add other layers like relu or batch normalization layer but we are skipping the details of these layers in this tutorial.</p>
+<p>Here <strong><code>input_gen</code></strong> is the input image to the generator, <strong><code>num_features</code></strong> is the number of output features we extract out of the convolution layer, which can also be seen as number of different filters used to extract different features. <strong><code>window_width</code></strong> and <strong><code>window_height</code></strong> denote the width and heigth of filter window that we will move accross the input image to extract features and similarly <strong><code>stride_width</code></strong> and <strong><code>stride_height</code></strong> defines the shift of filter patch after each step. The output $o_{c_1}$ is a tensor of dimensions $[256, 256, 64]$ which is again passed through another convolution layer. Here, <strong><code>ngf</code></strong> = 64 as mentioned earlier. I have defined the <strong><code>general_conv2d</code></strong> function. We can add other layers like relu or batch normalization layer but we are skipping the details of these layers in this tutorial.</p>
 
 </div>
 </div>
@@ -11985,7 +11994,7 @@ to a desired output $y_i$.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">general_conv2d</span><span class="p">(</span><span class="n">inputconv</span><span class="p">,</span> <span class="n">o_d</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">f_h</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">f_w</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">s_h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s_w</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-        <span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">inputconv</span><span class="p">,</span> <span class="n">num_features</span><span class="p">,</span> <span class="p">[</span><span class="n">window_width</span><span class="p">,</span> <span class="n">window_height</span><span class="p">],</span> <span class="p">[</span><span class="n">stride_width</span><span class="p">,</span> <span class="n">stride_height</span><span class="p">],</span>
+        <span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">inputconv</span><span class="p">,</span> <span class="n">num_features</span><span class="p">,</span> <span class="p">[</span><span class="n">window_width</span><span class="p">,</span> <span class="n">window_height</span><span class="p">],</span> <span class="p">[</span><span class="n">stride_width</span><span class="p">,</span> <span class="n">stride_height</span><span class="p">],</span> 
                                         <span class="n">padding</span><span class="p">,</span> <span class="n">activation_fn</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">weights_initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal_initializer</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="n">stddev</span><span class="p">),</span>
                                         <span class="n">biases_initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant_initializer</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
 </pre></div>
@@ -12069,7 +12078,7 @@ to a desired output $y_i$.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here $o_{enc}^{B}$ denotes the final output of this layer which will be of the size $[64,64,256]$. And as discussed ealier, this can be seens as the feature vector for an image in domain $D_B$.</p>
-<p><code>build_resnet_bock</code> returns one block of a residual layer which consists of two convolution layers where a residue of input is added to the output. This is done to ensure properties of input of previous layers are available for later layers as well, so that the their output does not deviate much from original input, otherwise the characteristics of original images will not be retained in the output and reults will be very abrupt. As we discussed earlier, one of the primary aim fo the task is to retain the characteristic of original input like the size and shape of the object, so residual networks are a great fit for these kind of transformations. Resnet block can be summarized in following image</p>
+<p>You must be wondering what is this <strong><code>build_resnet_block</code></strong> function and what does it do? <strong><code>build_resnet_block</code></strong> is a neural network layer which consists of two convolution layers where a residue of input is added to the output. This is done to ensure properties of input of previous layers are available for later layers as well, so that the their output do not deviate much from original input, otherwise the characteristics of original images will not be retained in the output and results will be very abrupt. As we discussed earlier, one of the primary aim fo the task is to retain the characteristic of original input like the size and shape of the object, so residual networks are a great fit for these kind of transformations. Resnet block can be summarized in following image</p>
 <p><div style= "font-size: 1.5rem; font-style: italic; text-align: center; color: #99938E">
 <img src="images/Resnet.jpg" alt="Model Architecture 1" style="width: 35%; padding: 10px;"/>
 </div></p>
@@ -12201,7 +12210,7 @@ to a desired output $y_i$.</p>
 <p><div style= "font-size: 1.5rem; font-style: italic; text-align: center; color: #99938E">
 <img src="images/discriminator.jpg" alt="Model Architecture 1" style="width: 60%; padding: 10px;"/>
 </div></p>
-<p>The discriminator is simply a convolution network in our case. First we extract the features from the image.</p>
+<p>The discriminator is simply a convolution network in our case. First, we will extract the features from the image.</p>
 
 </div>
 </div>
@@ -12250,7 +12259,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We now have two main components of the model, namely <strong>Generator</strong> and <strong>Discriminator</strong>, and since we want to make this model work in both the direction like from $A \rightarrow B$ and from $ B \rightarrow A$, we will have two generators, namely $Generator_{A\rightarrow B}$ and $Generator_{B\rightarrow A}$, and two discriminators, namely $Discriminator_A$ and $Discriminator_B$.</p>
+<p>We now have two main components of the model, namely <strong>Generator</strong> and <strong>Discriminator</strong>, and since we want to make this model work in both the direction i.e., from $A \rightarrow B$ and from $ B \rightarrow A$, we will have two Generators, namely $Generator_{A\rightarrow B}$ and $Generator_{B\rightarrow A}$, and two Discriminators, namely $Discriminator_A$ and $Discriminator_B$.</p>
 
 </div>
 </div>
@@ -12260,7 +12269,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Building-the-model">Building the model<a class="anchor-link" href="#Building-the-model">&#182;</a></h3><p>Before getting to loss funtion let us define the base and see how to take input, construct the model and how we to feed the input to the network.</p>
+<h3 id="Building-the-model">Building the model<a class="anchor-link" href="#Building-the-model">&#182;</a></h3><p>Before getting to loss funtion let us define the base and see how to take input, construct the model.</p>
 
 </div>
 </div>
@@ -12327,8 +12336,8 @@ to a desired output $y_i$.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Loss-Function">Loss Function<a class="anchor-link" href="#Loss-Function">&#182;</a></h3><p>By now we have two generators and two discriminators. We need to design the loss function in a way which accomplishes our goal. The loss function can be seen having four parts:</p>
 <ol>
-<li>Discriminator must approve the original images corresponding to only their categories.</li>
-<li>Discriminator must reject all the images which are generated by generators.</li>
+<li>Discriminator must approve all the original images of the corresponding categories.</li>
+<li>Discriminator must reject all the images which are generated by corresponding Generators to fool them.</li>
 <li>Generators must make the discriminators approve all the generated images, so as to fool them.</li>
 <li>The generated image must retain the property of original image, so if we generate a fake image using a generator say $Generator_{A\rightarrow B}$ then we must be able to get back to original image using the another generator $Generator_{B\rightarrow A}$ - it must satisfy cyclic-consistency.</li>
 </ol>
@@ -12463,7 +12472,7 @@ to a desired output $y_i$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The multiplicative factor of 10 for <code>cyc_loss</code> assigns more importance to cyclic loss than the discrimination loss.</p>
+<p>The multiplicative factor of 10 for <strong><code>cyc_loss</code></strong> assigns more importance to cyclic loss than the discrimination loss.</p>
 
 </div>
 </div>
@@ -12525,7 +12534,8 @@ to a desired output $y_i$.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">curr_lr</span> <span class="o">=</span> <span class="mf">0.0002</span> <span class="o">-</span> <span class="mf">0.0002</span><span class="o">*</span><span class="p">(</span><span class="n">epoch</span><span class="o">-</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
 
-    <span class="k">for</span> <span class="n">ptr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_images</span><span class="p">):</span>
+    <span class="c1"># Running the training loop for all batches</span>
+    <span class="k">for</span> <span class="n">ptr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_images</span><span class="p">):</span>
 
         <span class="c1"># Train generator G_A->B</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">gen_B_temp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">g_A_trainer</span><span class="p">,</span> <span class="n">gen_B</span><span class="p">],</span>
@@ -12538,7 +12548,6 @@ to a desired output $y_i$.</p>
         <span class="c1"># Same for G_B->A and D_A as follow</span>
         <span class="n">_</span><span class="p">,</span> <span class="n">gen_A_temp</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">g_B_trainer</span><span class="p">,</span> <span class="n">gen_A</span><span class="p">],</span>
                                  <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">input_A</span><span class="p">:</span><span class="n">A_input</span><span class="p">[</span><span class="n">ptr</span><span class="p">],</span> <span class="n">input_B</span><span class="p">:</span><span class="n">B_input</span><span class="p">[</span><span class="n">ptr</span><span class="p">],</span> <span class="n">lr</span><span class="p">:</span><span class="n">curr_lr</span><span class="p">})</span>
-
         <span class="n">_</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">d_A_trainer</span><span class="p">],</span>
                      <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">input_A</span><span class="p">:</span><span class="n">A_input</span><span class="p">[</span><span class="n">ptr</span><span class="p">],</span> <span class="n">input_B</span><span class="p">:</span><span class="n">B_input</span><span class="p">[</span><span class="n">ptr</span><span class="p">],</span> <span class="n">lr</span><span class="p">:</span><span class="n">curr_lr</span><span class="p">})</span>
 </pre></div>
@@ -12553,7 +12562,8 @@ to a desired output $y_i$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Since we are nearly done with the code, below is look at the default parameters that we took to train the model</p>
+<p>You can see in above training function that one by one we are calling trainers corresponding to different Dicriminators and Generators. For training them, we need to feed traing images and learning rate of the optimizer. Since, we have <strong><code>batch_size</code></strong> = 1, so, <strong><code>num_batches = num_images</code></strong>.</p>
+<p>Since, we are nearly done with the code, below is look at the default parameters that we took to train the model</p>
 
 </div>
 </div>
@@ -12631,18 +12641,11 @@ to a desired output $y_i$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We ran the model for <a href="https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/horse2zebra.zip">horse2zebra dataset</a> but because of the lack of resources, we just ran the model for 100 epochs and got following results.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h3><p><div style= "font-size: 1.5rem; font-style: italic; text-align: center; color: #99938E">
+<h3 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h3><p>We ran the model for <a href="https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/horse2zebra.zip">horse2zebra dataset</a> but because of the lack of resources, we just ran the model for 100 epochs and got following results.</p>
+<p><div style= "font-size: 1.5rem; font-style: italic; text-align: center; color: #99938E">
 <img src="images/Results.jpg" alt="Model Architecture 1" style="width: 60%; padding: 10px;"/>
+<br>
+Results
 </div></p>
 
 </div>
@@ -12656,7 +12659,9 @@ to a desired output $y_i$.</p>
 <h3 id="Final-Comments">Final Comments<a class="anchor-link" href="#Final-Comments">&#182;</a></h3><ol>
 <li>During training we noticed that the ouput results were sensitive to initialization. Thanks to <a href="https://github.com/vanhuyz">vanhuyz</a> for pointing this out and suggesting training multiple times to get best results. You might notice background color being reversed as in following image. This effect can be observed only after 10-20 epochs and you can try to run the code again.
 <div style= "font-size: 1.5rem; font-style: italic; text-align: center; color: #99938E">
-<img src="images/distortion.jpg" alt="Model Architecture 1" style="width: 60%; padding: 10px;"/>
+<img src="images/distortion.jpg" alt="Distortion" style="width: 60%; padding: 10px;"/>
+<br>
+Distortion
 </div></li>
 <br>
 <li>We also think that this model is not good fit to change the shape of object. We tried to run the model for converting a men's face to a look alike women's face. For that we used celebA dataset but the results are not good and images produced are quite distorted.</li>
@@ -12665,6 +12670,8 @@ to a desired output $y_i$.</p>
 </div>
 </div>
 </div>
+
+<br><br>
 
 <div id="disqus_thread"></div>
 <script>
@@ -12692,9 +12699,6 @@ var disqus_config = function () {
 
     </div>
   </div>
-
-
-
 </body>
 
 
